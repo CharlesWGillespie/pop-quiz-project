@@ -1,0 +1,25 @@
+:root{
+    --background: #3b3b53;
+    --text-color: #fff; 
+    --button: #84eb64;
+}
+
+body{
+    background-color: var(--background);
+}
+
+body header h1{
+    color: var(--text-color);
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+}
+ 
+body header p{
+    color: var(--text-color)
+}
+
+.aside{
+    color: #fff;
+    margin-left: 400px ;
+}
