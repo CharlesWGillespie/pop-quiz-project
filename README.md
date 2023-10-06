@@ -15,3 +15,10 @@ WHEN all questions are answered or the timer reaches 0
 THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
+
+
+
+
+
+# Credits:
+Timer tutorial only used for HTML - https://www.youtube.com/watch?v=PIiMSMz7KzM&t=328s
