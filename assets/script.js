@@ -4,15 +4,17 @@ function startTimer(duration, display) {
     const countdown = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
+    
+        // Show only seconds if the timer is not at 1 minute
+        if (minutes === 0) {
+            display.textContent = seconds < 10 ? "0" + seconds : seconds;
+        } else {
+            display.textContent = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+        }
+    
         if (--timer < 0) {
             clearInterval(countdown);
-            
+            // Timer has reached zero, you can add your logic here.
         }
     }, 1000);
 }

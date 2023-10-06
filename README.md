@@ -6,7 +6,7 @@ WHEN I click the start button
 THEN a timer starts and I am presented with a question
 //when i click the start button i want to be brought to a new screen ✅
 //when i get to the new screen i want to be presented with a timer counting down from 1 minute✅
-//when i get to the new screen i want to be presented with a question
+//when i get to the new screen i want to be presented with a question✅
 
 WHEN I answer a question
 THEN I am presented with another question
