@@ -25,6 +25,9 @@ body header p{
 
 /* for high score link */
 nav a{
+    position: relative;
+    left: 30px;
+    bottom: 300px;
     font-size: 40px;
     color: var(--text-color);
     text-decoration: none;
@@ -34,8 +37,9 @@ nav a{
 .cd {
     color: var(--text-color);
     font-size: 50px;
-    margin-left: 1500px;
-    margin-top: 0px;
+    position: relative;
+    left: 1650px;
+    bottom: 300px;
 }
 
 /* start button positioning and styling */
