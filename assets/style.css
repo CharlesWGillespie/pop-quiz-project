@@ -42,7 +42,7 @@ nav a{
     color: var(--text-color);
     font-size: 80px;
     position: relative;
-    left: 50%;
+    left: 47%;
     margin-top: 100px;
     font-family: 'inter';
     width: 150px;
@@ -74,6 +74,32 @@ nav a{
     font-family: 'inter';
 }
 
-#quiz-form{
-    
+.quiz-section{
+    position: relative;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: .7s ease-in-out;
+    transition-delay: .25s;
+}
+
+.quiz-section .quiz-box{
+    position: relative;
+    width: 700px;
+    background: transparent;
+    border: 2px solid var(--text-color);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px
+}
+
+.quiz-box h1{
+    font-size: 32px;
+    text-align: center;
+    background: linear-gradient(50deg, transparent, var(--button), transparent);
+    border-radius: 5px;
 }
