@@ -19,33 +19,81 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-document.addEventListener("DOMContentLoaded", function (){
-    const timerDisplay = document.getElementById("timer");
-    const initialTime = 60;
-    startTimer(initialTime, timerDisplay)
-})
+let questions = [
+    {
+        numb: 1,
+        question: "What does HTML stand for?",
+        answer: "A. Hyper Text Markup Language",
+        options: [
+            "A. Hyper Text Markup Language",
+            "B. Hyperlinks and Text Markup Language",
+            "C. Home Tool Markup Language",
+            "D. Home Tool Mediator Language"
+        ]
+    },
+    {
+        numb: 2,
+        question: "Who is making the Web standards?",
+        answer: "C. The World Wide Web Consortium",
+        options: [
+            "A. Mozilla",
+            "B. Microsoft",
+            "C. The World Wide Web Consortium",
+            "D. Google"
+        ]
+    },
+    {
+        numb: 3,
+        question: "Choose the correct HTML element for the largest heading:",
+        answer: "B. <h1>",
+        options: [
+            "A. <heading>",
+            "B. <h1>",
+            "C. <head>",
+            "D. <h6>"
+        ]
+    },
+    {
+        numb: 4,
+        question: "What is the correct HTML element for inserting a line break?",
+        answer: "C. <br>",
+        options: [
+            "A. <lb>",
+            "B. <brake>",
+            "C. <br>",
+            "D. <break>"
+        ]
+    },
+    {
+        numb: 5,
+        question: "",
+        answer: "",
+        options: [
 
-document.addEventListener("DOMContentLoaded", function () {
-    const quizForm = document.getElementById("quiz-form");
-
-    quizForm.addEventListener("submit", function (e) {
-        e.preventDefault(); // Prevent the form from submitting
-
-        // Get the selected answer
-        const selectedAnswer = document.querySelector('input[name="answer"]:checked');
-
-        if (!selectedAnswer) {
-            alert("Please select an answer."); // Display an alert if no answer is selected
-            return;
-        }
-
-        const userAnswer = selectedAnswer.value;
-
-        // Check the user's answer (you can add your logic here)
-        if (userAnswer === "A") {
-            alert("Correct!"); // Display a message for a correct answer
-        } else {
-            alert("Incorrect. Try again!"); // Display a message for an incorrect answer
-        }
-    });
-});
+        ]
+    },
+    {
+        numb: 6,
+        question: "",
+        answer: "",
+        options: [
+            
+        ]
+    },
+    {
+        numb: 7,
+        question: "",
+        answer: "",
+        options: [
+            
+        ]
+    },
+    {
+        numb: 8,
+        question: "",
+        answer: "",
+        options: [
+            
+        ]
+    }
+];

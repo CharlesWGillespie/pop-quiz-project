@@ -24,3 +24,6 @@ THEN I can save my initials and score
 
 # Credits:
 Timer tutorial only used for HTML - https://www.youtube.com/watch?v=PIiMSMz7KzM&t=328s
+
+for quiz questions :
+HTML - https://www.w3schools.com/quiztest/quiztest.asp?qtest=HTML
