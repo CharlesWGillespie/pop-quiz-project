@@ -66,34 +66,46 @@ let questions = [
     },
     {
         numb: 5,
-        question: "",
-        answer: "",
+        question: "What does CSS stand for?",
+        answer: "C. Cascading Style Sheets",
         options: [
-
+            "A. Creative Style Sheets",
+            "B. Computer Style Sheers",
+            "C. Cascading Style Sheets",
+            "D. Colorful Style Sheets"
         ]
     },
     {
         numb: 6,
-        question: "",
-        answer: "",
+        question: "How do you insert a comment in a CSS file?",
+        answer: "C. /*This is a comment*/",
         options: [
-            
+            "A. // this is a comment //",
+            "B. // this is a comment",
+            "C. /*This is a comment */",
+            "D. */this is a comment /*"
         ]
     },
     {
         numb: 7,
-        question: "",
-        answer: "",
+        question: "Inside which HTML element do we put the JavaScript?",
+        answer: "D. <script>",
         options: [
-            
+            "A. <scripting>",
+            "B. <javascript>",
+            "C. <js>",
+            "D. <script>"
         ]
     },
     {
         numb: 8,
-        question: "",
-        answer: "",
+        question: "What is the correct syntax for referring to an external script called 'xxx.js'?",
+        answer: "A. <script src='xyz.js'>",
         options: [
-            
+            "A. <script src='xyz.js'>",
+            "B. <script id='xyz.js'>",
+            "C. <script class='xyz.js'>",
+            "D. <script href='xyz.js'>"
         ]
     }
 ];

@@ -1,5 +1,3 @@
-
-
 Acceptance Criteria:
 GIVEN I am taking a code quiz
 WHEN I click the start button
@@ -17,13 +15,11 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 
-
-
-
-
-
 # Credits:
+
 Timer tutorial only used for HTML - https://www.youtube.com/watch?v=PIiMSMz7KzM&t=328s
 
 for quiz questions :
 HTML - https://www.w3schools.com/quiztest/quiztest.asp?qtest=HTML
+CSS - https://www.w3schools.com/quiztest/quiztest.asp?qtest=CSS
+JS - https://www.w3schools.com/js/js_quiz.asp
