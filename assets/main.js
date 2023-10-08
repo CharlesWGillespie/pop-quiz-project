@@ -1,8 +1,8 @@
 const optionElements = document.querySelectorAll('.option');
 const questionTotalElement = document.querySelector('.question-total');
-const nextButton = document.querySelector('.next-btn'); // Select the "NEXT" button
-
+const nextButton = document.querySelector('.next-btn');
 let currentQuestionIndex = 0;
+let score = 0; // Initialize the score variable
 
 // Function to load a question by its index
 function loadQuestion(index) {
@@ -21,14 +21,21 @@ function loadQuestion(index) {
     optionElements[i].textContent = option;
   });
 }
-//function for next button
+
+// Function to handle "NEXT" button click
 function handleNextButtonClick() {
   currentQuestionIndex++;
-  
+
   if (currentQuestionIndex < questions.length) {
     // Load the next question
     loadQuestion(currentQuestionIndex);
   } else {
+    // Quiz has ended, calculate and display the score
+    const totalQuestions = questions.length;
+    const percentageScore = (score / totalQuestions) * 100;
+
+    // Display the score as an alert or on the page as you prefer
+    alert(`Quiz completed!\nYour score: ${score} / ${totalQuestions}\nPercentage Score: ${percentageScore}%`);
   }
 }
 
