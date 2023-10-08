@@ -1,66 +1,109 @@
-const optionElements = document.querySelectorAll('.option');
-const questionTotalElement = document.querySelector('.question-total');
-const nextButton = document.querySelector('.next-btn');
-let currentQuestionIndex = 0;
-let score = 0; // Initialize the score variable
+const startBtn = document.querySelector('#startBtn')
+let score = 0; 
+let timeLeft = 60;
+const timerCD = document.querySelector('#timerCD')
 
-// Function to load a question by its index
-function loadQuestion(index) {
-  const currentQuestion = questions[index];
-  questionTotalElement.textContent = `${index + 1} of ${questions.length} Questions`;
 
-  // Reset option backgrounds
-  optionElements.forEach((option) => {
-    option.style.backgroundColor = '';
-    option.style.pointerEvents = 'auto';
-  });
-
-  // Set the question and options
-  document.querySelector('.quiz-form').textContent = currentQuestion.question;
-  currentQuestion.options.forEach((option, i) => {
-    optionElements[i].textContent = option;
-  });
-}
-
-// Function to handle "NEXT" button click
-function handleNextButtonClick() {
-  currentQuestionIndex++;
-
-  if (currentQuestionIndex < questions.length) {
-    // Load the next question
-    loadQuestion(currentQuestionIndex);
-  } else {
-    // Quiz has ended, calculate and display the score
-    const totalQuestions = questions.length;
-    const percentageScore = (score / totalQuestions) * 100;
-
-    // Display the score as an alert or on the page as you prefer
-    alert(`Quiz completed!\nYour score: ${score} / ${totalQuestions}\nPercentage Score: ${percentageScore}%`);
-  }
-}
-
-// Event listener for option clicks
-optionElements.forEach((option, index) => {
-  option.addEventListener('click', () => {
-    const currentQuestion = questions[currentQuestionIndex];
-    const selectedOption = currentQuestion.options[index];
-
-    if (selectedOption === currentQuestion.answer) {
-      option.style.backgroundColor = 'green'; // Set the correct answer to green
-      score++; // Increment the score for correct answers
-    } else {
-      option.style.backgroundColor = 'red'; // Set incorrect answers to red
+function startTimer() {
+  const countdown = setInterval(function () {
+    timerCD.textContent = timeLeft
+    timeLeft--
+    if (timeLeft === 0) {
+      clearInterval(countdown)
     }
+  }, 1000);
+}
 
-    // Disable further clicks on options for this question
-    optionElements.forEach((opt) => opt.style.pointerEvents = 'none');
-    
-    handleNextButtonClick();
-  });
-});
+startBtn.addEventListener('click', startTimer());
 
-// Event listener for "NEXT" button click
-nextButton.addEventListener('click', handleNextButtonClick);
+  let questions = [
+    {
+      numb: 1,
+      question: "What does HTML stand for?",
+      answer: "A. Hyper Text Markup Language",
+      options: [
+        "A. Hyper Text Markup Language",
+        "B. Hyperlinks and Text Markup Language",
+        "C. Home Tool Markup Language",
+        "D. Home Tool Mediator Language"
+      ]
+    },
+    {
+      numb: 2,
+      question: "Who is making the Web standards?",
+      answer: "C. The World Wide Web Consortium",
+      options: [
+        "A. Mozilla",
+        "B. Microsoft",
+        "C. The World Wide Web Consortium",
+        "D. Google"
+      ]
+    },
+    {
+      numb: 3,
+      question: "Choose the correct HTML element for the largest heading:",
+      answer: "B. <h1>",
+      options: [
+        "A. <heading>",
+        "B. <h1>",
+        "C. <head>",
+        "D. <h6>"
+      ]
+    },
+    {
+      numb: 4,
+      question: "What is the correct HTML element for inserting a line break?",
+      answer: "C. <br>",
+      options: [
+        "A. <lb>",
+        "B. <brake>",
+        "C. <br>",
+        "D. <break>"
+      ]
+    },
+    {
+      numb: 5,
+      question: "What does CSS stand for?",
+      answer: "C. Cascading Style Sheets",
+      options: [
+        "A. Creative Style Sheets",
+        "B. Computer Style Sheers",
+        "C. Cascading Style Sheets",
+        "D. Colorful Style Sheets"
+      ]
+    },
+  {
+      numb: 6,
+      question: "How do you insert a comment in a CSS file?",
+      answer: "C. /*this is a comment*/",
+      options: [
+        "A. // this is a comment //",
+        "B. // this is a comment",
+        "C. /*this is a comment*/",
+        "D. */this is a comment /*"
+      ]
+    },
+    {
+      numb: 7,
+      question: "Inside which HTML element do we put the JavaScript?",
+      answer: "D. <script>",
+      options: [
+        "A. <scripting>",
+        "B. <javascript>",
+        "C. <js>",
+        "D. <script>"
+      ]
+    },
+  {
+    numb: 8,
+    question: "What is the correct syntax for referring to an external script called 'xyz.js'?",
+    answer: "A. <script src='xyz.js'>",
+    options: [
+      "A. <script src='xyz.js'>",
+      "B. <script id='xyz.js'>",
+      "C. <script class='xyz.js'>",
+      "D. <script href='xyz.js'>"
+    ]
+  }
+];
 
-// Start the quiz by loading the first question
-loadQuestion(currentQuestionIndex);
