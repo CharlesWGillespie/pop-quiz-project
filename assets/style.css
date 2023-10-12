@@ -158,4 +158,19 @@ nav a{
     justify-content: center;
     padding: 20px;
 }
+#end-h1{
+    color: var(--text-color);
+    font-size: 130px;
+    margin: 50px 500px;
+    text-align: center;
+    font-family: 'inter';
+}
+
+#end-p{ 
+    color: var(--text-color);
+    font-size: 35px;
+    margin: 50px 500px;
+    text-align: center;
+    font-family: 'inter';
+}
 

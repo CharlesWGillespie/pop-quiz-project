@@ -1,19 +1,24 @@
-const timerCD = document.querySelector('#timerCD')
-const intro = document.querySelector('#intro')
-const quizHide = document.querySelector('#quiz-hide')
-const startBtn = document.querySelector('#startBtn')
-const startBtnHide = document.querySelector('#startBtnHide')
-
+const timerCD = document.querySelector('#timerCD');
+const intro = document.querySelector('#intro');
+const quizHide = document.querySelector('#quiz-hide');
+const startBtn = document.querySelector('#startBtn');
+const startBtnHide = document.querySelector('#startBtnHide');
+const endHeader = document.querySelector('#end-h1');
+const endPara = document.querySelector('#end-p');
+const highScore = document.querySelector('#high-score')
 
 let timeLeft = 60;
+
+
 
 // starts timer on start click
 function startTimer() {
   const countdown = setInterval(function () {
-    timerCD.textContent = timeLeft
-    timeLeft--
-    if (timeLeft === 0) {
-      clearInterval(countdown)
+    timerCD.textContent = timeLeft;
+    timeLeft--;
+    if (timeLeft === 57) {
+      clearInterval(countdown);
+      ending();
     }
   }, 1000);
 }
@@ -21,10 +26,23 @@ function startTimer() {
 
 // hides header and button in html and unhides quiz when start button is clicked
 function showQuiz() {
-  intro.setAttribute('class', 'hide')
-  startBtnHide.setAttribute('class', 'hide')
-  quizHide.removeAttribute('class', 'hide')
-  timerCD.removeAttribute('class', 'hide')
+  intro.setAttribute('class', 'hide');
+  startBtnHide.setAttribute('class', 'hide');
+  quizHide.removeAttribute('class', 'hide');
+  timerCD.removeAttribute('class', 'hide');
+}
+
+
+
+//when the timer hits -1 the quiz will disapear and tell the user what to do 
+function ending() {
+  if(timeLeft === 57) {
+    quizHide.setAttribute('class', 'hide');
+    highScore.removeAttribute('class', 'hide');//issue: link is not showing
+    endHeader.removeAttribute('class', 'hide');
+    endPara.removeAttribute('class', 'hide');
+    timerCD.setAttribute('class', 'hide');//issue: timer will not disapear
+  } 
 }
 
 
@@ -127,4 +145,4 @@ let questions = [
   // starts timer
   startBtn.addEventListener('click', startTimer);
   //hides header + startbtn and shows quiz
-  startBtn.addEventListener('click', showQuiz)
+  startBtn.addEventListener('click', showQuiz);

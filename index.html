@@ -10,15 +10,17 @@
     <title>code quiz.</title>
 </head>
 <body>
+   
+   
     <header id="intro">
         <h1>code quiz.</h1>
         <p>This Quiz designed to test your knowledge on coding principles including HTML, CSS, JavaScript, and other related topics. You will have 1 minute to answer as many questions as possible. Try Your best and go for the HIGH SCORE!</p>
     </header>
-    <nav>
-        <!-- when i click the high score link i want it to bring me to a new page -->
-        <a href="./high-score.html">High Score</a>
-    </nav>
+    
+    
     <div class="hide" id="timerCD"></div>
+    
+    
     <main class="hide" id="quiz-hide">    
         <section class="quiz-main">
             <div class="quiz-section">
@@ -54,10 +56,31 @@
         
         </section>
     </main>
+   
+    
     <div id="startBtnHide">
         <!-- when i click the start button i want it to move me to a new page -->
         <button class="start-btn" id="startBtn">START</button>
-    </div>    
+    </div> 
+    
+    
+    
+    <nav class="hide" id="high-score">
+        <!-- when i click the high score link i want it to bring me to a new page -->
+        <a href="./high-score.html">High Score</a>
+    </nav> 
+    
+    
+    <section>
+        <h1 class="hide" id="end-h1">Times up!</h1>
+        <p class="hide" id="end-p">Head to the "High Score" section on the top left of the page to view your score!</p>
+        
+    </section>
+    
+    
+    
+    
+    
     <script src="./assets/main.js"></script>
 </body>
 </html>
