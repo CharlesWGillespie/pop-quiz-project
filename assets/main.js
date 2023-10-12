@@ -1,62 +1,4 @@
-const timerCD = document.querySelector('#timerCD');
-const intro = document.querySelector('#intro');
-const quizHide = document.querySelector('#quiz-hide');
-const startBtn = document.querySelector('#startBtn');
-const startBtnHide = document.querySelector('#startBtnHide');
-const endHeader = document.querySelector('#end-h1');
-const endPara = document.querySelector('#end-p');
-const highScore = document.querySelector('#high-score')
-
-let timeLeft = 60;
-
-
-
-
-// starts timer on start click
-function startTimer() {
-  const countdown = setInterval(function () {
-    timerCD.textContent = timeLeft;
-    timeLeft--;
-    if (timeLeft === 57) {
-      clearInterval(countdown);
-      ending();
-    }
-  }, 1000);
-}
-
-
-// hides header and button in html and unhides quiz when start button is clicked
-function showQuiz() {
-  intro.setAttribute('class', 'hide');
-  startBtnHide.setAttribute('class', 'hide');
-  quizHide.removeAttribute('class', 'hide');
-  timerCD.removeAttribute('class', 'hide');
-}
-
-
-
-//when the timer hits -1 the quiz will disapear and tell the user what to do 
-function ending() {
-  if(timeLeft === 57) {
-    quizHide.setAttribute('class', 'hide');
-    highScore.removeAttribute('class', 'hide');//issue: link is not showing
-    // highScore.classList.remove('hide'); works but i need to change element to section not nav
-    endHeader.removeAttribute('class', 'hide');
-    endPara.removeAttribute('class', 'hide');
-    //timerCD.setAttribute('class', 'hide');//issue: timer will not disapear
-    //timerCD.style.display = 'none' // working
-    timerCD.textContent = ''; // working
-
-    
-
-  } 
-}
-
-
-
-
-
-let questions = [
+const questions = [
   {
     numb: 1,
     question: "What does HTML stand for?",
@@ -146,6 +88,108 @@ let questions = [
       ]
     }
   ];
+const timerCD = document.querySelector('#timerCD');
+const intro = document.querySelector('#intro');
+const quizHide = document.querySelector('#quiz-hide');
+const startBtn = document.querySelector('#startBtn');
+const startBtnHide = document.querySelector('#startBtnHide');
+const endHeader = document.querySelector('#end-h1');
+const endPara = document.querySelector('#end-p');
+const highScore = document.querySelector('#high-score')
+const questionContainer = document.querySelector('.quiz-form');
+const optionElements = document.querySelectorAll('.option');
+const nextButton = document.querySelector('.next-btn');
+const questionTotal = document.querySelector('.question-total');
+const headerScore = document.querySelector('.header-score');
+
+let questionIndex = 0;
+let score = 0;
+let timeLeft = 60;
+
+
+
+function displayQuestion() {
+  if (questionIndex < questions.length) {
+    const currentQuestion = questions[questionIndex];
+    questionContainer.textContent = currentQuestion.question;
+
+    for (let i = 0; i < optionElements.length; i++) {
+      optionElements[i].textContent = currentQuestion.options[i];
+      optionElements[i].addEventListener('click', () => checkAnswer(i));
+    }
+
+    questionTotal.textContent = `${questionIndex + 1} of ${questions.length} Questions`;
+  } else {
+    // All questions have been answered
+    alert(`Quiz is finished! Your score is ${score} out of ${questions.length}`);
+  }
+}
+
+function checkAnswer(selectedIndex) {
+  const currentQuestion = questions[questionIndex];
+  if (currentQuestion.options[selectedIndex] === currentQuestion.answer) {
+    score++; // Increase the score if the answer is correct
+    headerScore.textContent = `Score: ${score}`;
+  } else {
+    // Deduct 3 seconds for a wrong answer
+    timeLeft -= 3;
+  }
+
+  if (questionIndex < questions.length - 1) {
+    questionIndex++;
+    displayQuestion();
+  } else {
+    // All questions have been answered
+    alert(`Quiz is finished! Your score is ${score} out of ${questions.length}`);
+  }
+}
+
+displayQuestion();
+// starts timer on start click
+function startTimer() {
+  const countdown = setInterval(function () {
+    timerCD.textContent = timeLeft;
+    timeLeft--;
+    if (timeLeft === 0) {
+      clearInterval(countdown);
+      ending();
+    }
+  }, 1000);
+}
+
+
+// hides header and button in html and unhides quiz when start button is clicked
+function showQuiz() {
+  intro.setAttribute('class', 'hide');
+  startBtnHide.setAttribute('class', 'hide');
+  quizHide.removeAttribute('class', 'hide');
+  timerCD.removeAttribute('class', 'hide');
+}
+
+
+
+//when the timer hits -1 the quiz will disapear and tell the user what to do 
+function ending() {
+  if(timeLeft === 0) {
+    quizHide.setAttribute('class', 'hide');
+    highScore.removeAttribute('class', 'hide');//issue: link is not showing
+    // highScore.classList.remove('hide'); works but i need to change element to section not nav
+    endHeader.removeAttribute('class', 'hide');
+    endPara.removeAttribute('class', 'hide');
+    //timerCD.setAttribute('class', 'hide');//issue: timer will not disapear
+    //timerCD.style.display = 'none' // working
+    timerCD.textContent = ''; // working
+
+    
+
+  } 
+}
+
+
+
+
+
+
   
   
   
