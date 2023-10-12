@@ -27,15 +27,6 @@ body header p{
 }
 
 /* for high score link */
-nav a{
-    position: relative;
-    left: 40px;
-    bottom: 600px;
-    font-size: 50px;
-    color: var(--text-color);
-    text-decoration: none;
-    font-family: 'inter';
-}
 
 /* cd short for count down used class for styling*/
 .cd {
@@ -172,5 +163,16 @@ nav a{
     margin: 50px 500px;
     text-align: center;
     font-family: 'inter';
+}
+
+
+#high-score{
+    left: 40px;
+    bottom: 600px;
+    font-size: 50px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: 'inter';
+    
 }
 

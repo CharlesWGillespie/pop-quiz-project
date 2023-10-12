@@ -11,6 +11,7 @@ let timeLeft = 60;
 
 
 
+
 // starts timer on start click
 function startTimer() {
   const countdown = setInterval(function () {
@@ -39,9 +40,15 @@ function ending() {
   if(timeLeft === 57) {
     quizHide.setAttribute('class', 'hide');
     highScore.removeAttribute('class', 'hide');//issue: link is not showing
+    // highScore.classList.remove('hide'); works but i need to change element to section not nav
     endHeader.removeAttribute('class', 'hide');
     endPara.removeAttribute('class', 'hide');
-    timerCD.setAttribute('class', 'hide');//issue: timer will not disapear
+    //timerCD.setAttribute('class', 'hide');//issue: timer will not disapear
+    //timerCD.style.display = 'none' // working
+    timerCD.textContent = ''; // working
+
+    
+
   } 
 }
 
