@@ -1,9 +1,13 @@
-const startBtn = document.querySelector('#startBtn')
-let score = 0; 
-let timeLeft = 60;
 const timerCD = document.querySelector('#timerCD')
+const intro = document.querySelector('#intro')
+const quizHide = document.querySelector('#quiz-hide')
+const startBtn = document.querySelector('#startBtn')
+const startBtnHide = document.querySelector('#startBtnHide')
 
 
+let timeLeft = 60;
+
+// starts timer on start click
 function startTimer() {
   const countdown = setInterval(function () {
     timerCD.textContent = timeLeft
@@ -14,22 +18,33 @@ function startTimer() {
   }, 1000);
 }
 
-startBtn.addEventListener('click', startTimer());
 
-  let questions = [
-    {
-      numb: 1,
-      question: "What does HTML stand for?",
-      answer: "A. Hyper Text Markup Language",
-      options: [
-        "A. Hyper Text Markup Language",
-        "B. Hyperlinks and Text Markup Language",
-        "C. Home Tool Markup Language",
-        "D. Home Tool Mediator Language"
-      ]
-    },
-    {
-      numb: 2,
+// hides header and button in html and unhides quiz when start button is clicked
+function showQuiz() {
+  intro.setAttribute('class', 'hide')
+  startBtnHide.setAttribute('class', 'hide')
+  quizHide.removeAttribute('class', 'hide')
+  timerCD.removeAttribute('class', 'hide')
+}
+
+
+
+
+
+let questions = [
+  {
+    numb: 1,
+    question: "What does HTML stand for?",
+    answer: "A. Hyper Text Markup Language",
+    options: [
+      "A. Hyper Text Markup Language",
+      "B. Hyperlinks and Text Markup Language",
+      "C. Home Tool Markup Language",
+      "D. Home Tool Mediator Language"
+    ]
+  },
+  {
+    numb: 2,
       question: "Who is making the Web standards?",
       answer: "C. The World Wide Web Consortium",
       options: [
@@ -72,7 +87,7 @@ startBtn.addEventListener('click', startTimer());
         "D. Colorful Style Sheets"
       ]
     },
-  {
+    {
       numb: 6,
       question: "How do you insert a comment in a CSS file?",
       answer: "C. /*this is a comment*/",
@@ -94,16 +109,22 @@ startBtn.addEventListener('click', startTimer());
         "D. <script>"
       ]
     },
-  {
-    numb: 8,
-    question: "What is the correct syntax for referring to an external script called 'xyz.js'?",
-    answer: "A. <script src='xyz.js'>",
-    options: [
-      "A. <script src='xyz.js'>",
-      "B. <script id='xyz.js'>",
-      "C. <script class='xyz.js'>",
-      "D. <script href='xyz.js'>"
-    ]
-  }
-];
-
+    {
+      numb: 8,
+      question: "What is the correct syntax for referring to an external script called 'xyz.js'?",
+      answer: "A. <script src='xyz.js'>",
+      options: [
+        "A. <script src='xyz.js'>",
+        "B. <script id='xyz.js'>",
+        "C. <script class='xyz.js'>",
+        "D. <script href='xyz.js'>"
+      ]
+    }
+  ];
+  
+  
+  
+  // starts timer
+  startBtn.addEventListener('click', startTimer);
+  //hides header + startbtn and shows quiz
+  startBtn.addEventListener('click', showQuiz)

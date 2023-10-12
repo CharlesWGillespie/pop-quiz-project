@@ -10,7 +10,7 @@
     <title>code quiz.</title>
 </head>
 <body>
-    <header>
+    <header id="intro">
         <h1>code quiz.</h1>
         <p>This Quiz designed to test your knowledge on coding principles including HTML, CSS, JavaScript, and other related topics. You will have 1 minute to answer as many questions as possible. Try Your best and go for the HIGH SCORE!</p>
     </header>
@@ -18,13 +18,45 @@
         <!-- when i click the high score link i want it to bring me to a new page -->
         <a href="./high-score.html">High Score</a>
     </nav>
+    <div class="hide" id="timerCD"></div>
+    <main class="hide" id="quiz-hide">    
+        <section class="quiz-main">
+            <div class="quiz-section">
+                <div class="quiz-box">
+                    <h1> code quiz </h1>
+                    <div class="quiz-header">
+                        <span class="header-score"></span>
+                    </div>
+                    <h2 class="quiz-form" >Inside which html elements do we put the JavaScript</h2>
+
+                    <div class="option-list">
+                        <div class="option">
+                            <span>A. java</span>
+                        </div>
+                        <div class="option">
+                            <span>B. js</span>
+                        </div>
+                        <div class="option">
+                            <span>C. javascript</span>
+                        </div>
+                        <div class="option">
+                            <span>D. scripting</span>
+                        </div>
+                    </div>
+                        <div class="quiz-footer">
+                        <span class="question-total">1 of 20 Questions</span>
+                        <button class="next-btn">NEXT</button>
+                    </div>
+
+                </div>
+
+            </div>
         
-    <section>
-        
-    </section>
-    <div>
+        </section>
+    </main>
+    <div id="startBtnHide">
         <!-- when i click the start button i want it to move me to a new page -->
-        <a href="./quiz.html"><button class="start-btn" id="startBtn">START</button></a>
+        <button class="start-btn" id="startBtn">START</button>
     </div>    
     <script src="./assets/main.js"></script>
 </body>

@@ -146,7 +146,16 @@ nav a{
     cursor: pointer;
     transition: .5s;
 }
+ .hide {
+    display: none;
+ }
 
-
-
+#timerCD {
+    color: var(--text-color);
+    font-size: 40px;
+    font-family: 'inter';
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
 
