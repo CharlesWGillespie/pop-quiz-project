@@ -21,6 +21,9 @@ JS - https://www.w3schools.com/js/js_quiz.asp
 
 
 ## Preview Screenshots
+![img-code-quiz](https://github.com/CharlesWGillespie/pop-quiz-project/assets/143773137/b18c73e1-eefe-4a2a-bc34-c9d3fc98b3c0)
+![img-code-quiz2](https://github.com/CharlesWGillespie/pop-quiz-project/assets/143773137/0f7076c5-a318-4971-907e-68d094de7333)
+![Screenshot 2023-10-15 125709](https://github.com/CharlesWGillespie/pop-quiz-project/assets/143773137/16605ef8-4300-4786-b3b3-76ca91c57119)
 
 ## Features
 
