@@ -154,115 +154,49 @@ const questions = [
       ]
     },
     {
-      numb: 8,
-      question: "",
-      answer: "",
+      numb: 15,
+      question: "Which CSS property is used to change the text color of an element?",
+      answer: "B. color",
       options: [
-        "A. ",
-        "B. ",
-        "C. ",
-        "D. "
+        "A. text-color",
+        "B. color",
+        "C. fgcolor",
+        "D. color-text"
       ]
     },
     {
-      numb: 8,
-      question: "",
-      answer: "",
+      numb: 16,
+      question: "Which jQuery method is used to set one or more style properties for selected elements?",
+      answer: "C. css()",
       options: [
-        "A. ",
-        "B. ",
-        "C. ",
-        "D. "
+        "A. html()",
+        "B. style()",
+        "C. css()",
+        "D. color()"
       ]
     },
     {
-      numb: 8,
-      question: "",
-      answer: "",
+      numb: 17,
+      question: "How do you round the number 7.25, to the nearest integer?",
+      answer: "B. Math.round(7.25)",
       options: [
-        "A. ",
-        "B. ",
-        "C. ",
-        "D. "
+        "A. Math.rnd(7.25)",
+        "B. Math.round(7.25)",
+        "C. rnd(7.25)",
+        "D. round(7.25)"
       ]
     },
     {
-      numb: 8,
-      question: "",
-      answer: "",
+      numb: 18,
+      question: "Whats the name of this Quiz?",
+      answer: "C. Code Quiz",
       options: [
-        "A. ",
-        "B. ",
-        "C. ",
-        "D. "
+        "A. CODING QUIZ",
+        "B. Coding Quiz",
+        "C. Code Quiz",
+        "D. Cod Quiz"
       ]
-    },
-    {
-      numb: 8,
-      question: "",
-      answer: "",
-      options: [
-        "A. ",
-        "B. ",
-        "C. ",
-        "D. "
-      ]
-    },
-    {
-      numb: 8,
-      question: "",
-      answer: "",
-      options: [
-        "A. ",
-        "B. ",
-        "C. ",
-        "D. "
-      ]
-    },
-    {
-      numb: 8,
-      question: "",
-      answer: "",
-      options: [
-        "A. ",
-        "B. ",
-        "C. ",
-        "D. "
-      ]
-    },
-    {
-      numb: 8,
-      question: "",
-      answer: "",
-      options: [
-        "A. ",
-        "B. ",
-        "C. ",
-        "D. "
-      ]
-    },
-    {
-      numb: 8,
-      question: "",
-      answer: "",
-      options: [
-        "A. ",
-        "B. ",
-        "C. ",
-        "D. "
-      ]
-    },
-    {
-      numb: 8,
-      question: "",
-      answer: "",
-      options: [
-        "A. ",
-        "B. ",
-        "C. ",
-        "D. "
-      ]
-    }
+    }, 
 ];
 
 const timerCD = document.querySelector('#timerCD');
