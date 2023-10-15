@@ -86,8 +86,185 @@ const questions = [
         "C. <script class='xyz.js'>",
         "D. <script href='xyz.js'>"
       ]
+    },
+    {
+      numb: 9,
+      question: "How do you write 'Hello World' in an alert box?",
+      answer: "D. alert('Hello World');",
+      options: [
+        "A. msg('Hello World');",
+        "B. msgBox('Hello World');",
+        "C. alertBox('Hello World');",
+        "D. alert('Hello World');"
+      ]
+    },
+    {
+      numb: 10,
+      question: "Choose the correct HTML element to define emphasized text",
+      answer: "C. <em>",
+      options: [
+        "A. <i>",
+        "B. <tal>",
+        "C. <em>",
+        "D. <emp>"
+      ]
+    },
+    {
+      numb: 11,
+      question: "Which property is used to change the background color?",
+      answer: "A. background-color",
+      options: [
+        "A. background-color",
+        "B. bg-col",
+        "C. background",
+        "D. color-background"
+      ]
+    },
+    {
+      numb: 12,
+      question: "Which jQuery method is used to hide selected elements?",
+      answer: "A. hide()",
+      options: [
+        "A. hide()",
+        "B. hidden()",
+        "C. display(none)",
+        "D. display(0)"
+      ]
+    },
+    {
+      numb: 13,
+      question: "How can you add a comment in a JavaScript?",
+      answer: "A. //",
+      options: [
+        "A. //",
+        "B. /*",
+        "C. --!",
+        "D. !--"
+      ]
+    },
+    {
+      numb: 14,
+      question: "Which character is used to indicate an end tag?",
+      answer: "D. /",
+      options: [
+        "A. *",
+        "B. <",
+        "C. ^",
+        "D. /"
+      ]
+    },
+    {
+      numb: 8,
+      question: "",
+      answer: "",
+      options: [
+        "A. ",
+        "B. ",
+        "C. ",
+        "D. "
+      ]
+    },
+    {
+      numb: 8,
+      question: "",
+      answer: "",
+      options: [
+        "A. ",
+        "B. ",
+        "C. ",
+        "D. "
+      ]
+    },
+    {
+      numb: 8,
+      question: "",
+      answer: "",
+      options: [
+        "A. ",
+        "B. ",
+        "C. ",
+        "D. "
+      ]
+    },
+    {
+      numb: 8,
+      question: "",
+      answer: "",
+      options: [
+        "A. ",
+        "B. ",
+        "C. ",
+        "D. "
+      ]
+    },
+    {
+      numb: 8,
+      question: "",
+      answer: "",
+      options: [
+        "A. ",
+        "B. ",
+        "C. ",
+        "D. "
+      ]
+    },
+    {
+      numb: 8,
+      question: "",
+      answer: "",
+      options: [
+        "A. ",
+        "B. ",
+        "C. ",
+        "D. "
+      ]
+    },
+    {
+      numb: 8,
+      question: "",
+      answer: "",
+      options: [
+        "A. ",
+        "B. ",
+        "C. ",
+        "D. "
+      ]
+    },
+    {
+      numb: 8,
+      question: "",
+      answer: "",
+      options: [
+        "A. ",
+        "B. ",
+        "C. ",
+        "D. "
+      ]
+    },
+    {
+      numb: 8,
+      question: "",
+      answer: "",
+      options: [
+        "A. ",
+        "B. ",
+        "C. ",
+        "D. "
+      ]
+    },
+    {
+      numb: 8,
+      question: "",
+      answer: "",
+      options: [
+        "A. ",
+        "B. ",
+        "C. ",
+        "D. "
+      ]
     }
-  ];
+];
+
 const timerCD = document.querySelector('#timerCD');
 const intro = document.querySelector('#intro');
 const quizHide = document.querySelector('#quiz-hide');
@@ -95,7 +272,7 @@ const startBtn = document.querySelector('#startBtn');
 const startBtnHide = document.querySelector('#startBtnHide');
 const endHeader = document.querySelector('#end-h1');
 const endPara = document.querySelector('#end-p');
-const highScore = document.querySelector('#high-score')
+const highScore = document.querySelector('#high-score');
 const questionContainer = document.querySelector('.quiz-form');
 const optionElements = document.querySelectorAll('.option');
 const nextButton = document.querySelector('.next-btn');
@@ -105,8 +282,6 @@ const headerScore = document.querySelector('.header-score');
 let questionIndex = 0;
 let score = 0;
 let timeLeft = 60;
-
-
 
 function displayQuestion() {
   if (questionIndex < questions.length) {
@@ -131,8 +306,11 @@ function checkAnswer(selectedIndex) {
     score++; // Increase the score if the answer is correct
     headerScore.textContent = `Score: ${score}`;
   } else {
-    // Deduct 3 seconds for a wrong answer
-    timeLeft -= 3;
+    // Deduct 5 seconds for a wrong answer
+    timeLeft -= 5;
+    if (timeLeft < 0) {
+      timeLeft = 0; //Timer doesn't go negative
+    }
   }
 
   if (questionIndex < questions.length - 1) {
@@ -145,7 +323,7 @@ function checkAnswer(selectedIndex) {
 }
 
 displayQuestion();
-// starts timer on start click
+
 function startTimer() {
   const countdown = setInterval(function () {
     timerCD.textContent = timeLeft;
@@ -157,8 +335,6 @@ function startTimer() {
   }, 1000);
 }
 
-
-// hides header and button in html and unhides quiz when start button is clicked
 function showQuiz() {
   intro.setAttribute('class', 'hide');
   startBtnHide.setAttribute('class', 'hide');
@@ -166,34 +342,15 @@ function showQuiz() {
   timerCD.removeAttribute('class', 'hide');
 }
 
-
-
-//when the timer hits -1 the quiz will disapear and tell the user what to do 
 function ending() {
   if(timeLeft === 0) {
     quizHide.setAttribute('class', 'hide');
-    highScore.removeAttribute('class', 'hide');//issue: link is not showing
-    // highScore.classList.remove('hide'); works but i need to change element to section not nav
+    highScore.removeAttribute('class', 'hide');
     endHeader.removeAttribute('class', 'hide');
     endPara.removeAttribute('class', 'hide');
-    //timerCD.setAttribute('class', 'hide');//issue: timer will not disapear
-    //timerCD.style.display = 'none' // working
-    timerCD.textContent = ''; // working
-
-    
-
+    timerCD.textContent = '';
   } 
 }
 
-
-
-
-
-
-  
-  
-  
-  // starts timer
-  startBtn.addEventListener('click', startTimer);
-  //hides header + startbtn and shows quiz
-  startBtn.addEventListener('click', showQuiz);
+startBtn.addEventListener('click', startTimer);
+startBtn.addEventListener('click', showQuiz);
