@@ -8,18 +8,6 @@ The purpose of this project is to have a Quiz based on everything I have learned
 
 This websites purpose is to challenge the user with questions pertaining to HTML, CSS, JavaScript, and JQuery. It shows what I have learned and how I can use them in a practical sense to make a working quiz website.
 
-## Credits
-
-Tutor: Faran Navazi
-Study Group: Evan Bennett https://github.com/Evan8383
-Timer tutorial only used for HTML - https://www.youtube.com/watch?v=PIiMSMz7KzM&t=328s
-
-for quiz questions :
-HTML - https://www.w3schools.com/quiztest/quiztest.asp?qtest=HTML
-CSS - https://www.w3schools.com/quiztest/quiztest.asp?qtest=CSS
-JS - https://www.w3schools.com/js/js_quiz.asp
-
-
 ## Preview Screenshots
 ![img-code-quiz](https://github.com/CharlesWGillespie/pop-quiz-project/assets/143773137/b18c73e1-eefe-4a2a-bc34-c9d3fc98b3c0)
 ![img-code-quiz2](https://github.com/CharlesWGillespie/pop-quiz-project/assets/143773137/0f7076c5-a318-4971-907e-68d094de7333)
