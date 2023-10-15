@@ -212,21 +212,23 @@ const optionElements = document.querySelectorAll('.option');
 const nextButton = document.querySelector('.next-btn');
 const questionTotal = document.querySelector('.question-total');
 const headerScore = document.querySelector('.header-score');
+const input = document.querySelector('#input')
+const saveBtn = document.querySelector('#saveBtn')
+const userInitScore = document.querySelector('#h-score')
 
 let questionIndex = 0;
 let score = 0;
 let timeLeft = 60;
 
+
 function displayQuestion() {
   if (questionIndex < questions.length) {
     const currentQuestion = questions[questionIndex];
     questionContainer.textContent = currentQuestion.question;
-
     for (let i = 0; i < optionElements.length; i++) {
       optionElements[i].textContent = currentQuestion.options[i];
-      optionElements[i].addEventListener('click', () => checkAnswer(i));
+      optionElements[i].addEventListener('click', (event) => checkAnswer(i, event));
     }
-
     questionTotal.textContent = `${questionIndex + 1} of ${questions.length} Questions`;
   } else {
     // All questions have been answered
@@ -234,26 +236,21 @@ function displayQuestion() {
   }
 }
 
-function checkAnswer(selectedIndex) {
+function checkAnswer(selectedIndex, event) {
   const currentQuestion = questions[questionIndex];
   if (currentQuestion.options[selectedIndex] === currentQuestion.answer) {
+    event.stopImmediatePropagation()
     score++; // Increase the score if the answer is correct
     headerScore.textContent = `Score: ${score}`;
-  } else {
+  } else if (currentQuestion.options[selectedIndex]!== currentQuestion.answer){
+    event.stopImmediatePropagation()
     // Deduct 5 seconds for a wrong answer
     timeLeft -= 5;
-    if (timeLeft < 0) {
-      timeLeft = 0; //Timer doesn't go negative
-    }
   }
-
   if (questionIndex < questions.length - 1) {
     questionIndex++;
     displayQuestion();
-  } else {
-    // All questions have been answered
-    alert(`Quiz is finished! Your score is ${score} out of ${questions.length}`);
-  }
+  } 
 }
 
 displayQuestion();
@@ -262,12 +259,34 @@ function startTimer() {
   const countdown = setInterval(function () {
     timerCD.textContent = timeLeft;
     timeLeft--;
-    if (timeLeft === 0) {
+    if (timeLeft <= 0) {
       clearInterval(countdown);
       ending();
     }
   }, 1000);
 }
+// when the user enters their initials and clicks save.
+
+// A new li is appended to the ul.
+// the new li textContent is set to the user input and the current score. 
+// and the ul innterHTML is saved to local storage
+// psuedo code for saveScore()
+// ------------------------------------------------------------------------------------
+// pseudo score for getScore()
+
+// the innerHTML saved to localstorage is set to a variable.
+
+// the ul inner HTML is set to the inner HTML saved in the local storage.
+
+function saveScore() {
+
+}
+
+
+function getScore() {
+}
+
+
 
 function showQuiz() {
   intro.setAttribute('class', 'hide');
@@ -277,14 +296,21 @@ function showQuiz() {
 }
 
 function ending() {
-  if(timeLeft === 0) {
+  if(timeLeft <= 0) {
     quizHide.setAttribute('class', 'hide');
     highScore.removeAttribute('class', 'hide');
     endHeader.removeAttribute('class', 'hide');
     endPara.removeAttribute('class', 'hide');
+    input.removeAttribute('class', 'hide')
+    saveBtn.removeAttribute('class', 'hide')
     timerCD.textContent = '';
   } 
+
 }
 
-startBtn.addEventListener('click', startTimer);
-startBtn.addEventListener('click', showQuiz);
+startBtn.addEventListener('click', function() {
+  showQuiz()
+  startTimer()
+});
+
+saveBtn.addEventListener('click', saveScore)
