@@ -220,7 +220,6 @@ let questionIndex = 0;
 let score = 0;
 let timeLeft = 60;
 
-
 function displayQuestion() {
   if (questionIndex < questions.length) {
     const currentQuestion = questions[questionIndex];
@@ -265,28 +264,17 @@ function startTimer() {
     }
   }, 1000);
 }
-// when the user enters their initials and clicks save.
-
-// A new li is appended to the ul.
-// the new li textContent is set to the user input and the current score. 
-// and the ul innterHTML is saved to local storage
-// psuedo code for saveScore()
-// ------------------------------------------------------------------------------------
-// pseudo score for getScore()
-
-// the innerHTML saved to localstorage is set to a variable.
-
-// the ul inner HTML is set to the inner HTML saved in the local storage.
 
 function saveScore() {
-
+  localStorage.setItem('score', score)
+  localStorage.setItem('initial', input.value)
 }
 
-
-function getScore() {
+function getScore(){
+  let userScore = localStorage.getItem('score');
+  let userInit = localStorage.getItem('initial');
+userInitScore.textContent = `Score: ${userScore} - Player: ${userInit}`
 }
-
-
 
 function showQuiz() {
   intro.setAttribute('class', 'hide');
